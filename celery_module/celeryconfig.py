@@ -9,9 +9,9 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
 CELERYBEAT_SCHEDULE = {
-    'test-celery': {
+    'fetch-data-celery': {
         'task': 'scoreboard.tasks.fetch_data',
-        # Every minute
-        'schedule': crontab(minute="*"),
+        # Every midnight
+        'schedule': crontab(minute=0, hour=0),
     }
 }
