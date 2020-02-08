@@ -23,11 +23,13 @@ class TeamsScores(BaseModel):
     away_name = db.Column(db.String(255))
     away_score = db.Column(db.Integer)
     date_results_id = db.Column(db.Integer, db.ForeignKey('date_results.id'),
-                                unique=True, nullable=False)
+                                nullable=False)
 
-    def __init__(self, *args, home_name, home_score, away_name, away_score):
+    def __init__(self, *args, home_name, home_score, away_name, away_score,
+                 date_results_id):
         super().__init__(*args)
         self.home_name = home_name
         self.home_score = home_score
         self.away_name = away_name
         self.away_score = away_score
+        self.date_results_id = date_results_id
