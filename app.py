@@ -2,10 +2,13 @@ from celery_module.celery import make_celery
 from flask import Flask, request, jsonify
 from models import db
 import json
+from scoreboard.views import scoreboard_view
 
 
 def create_app():
     app = Flask(__name__)
+    app.register_blueprint(scoreboard_view)
+    print(app.url_map)
 
     POSTGRES = {
         'user': 'krzysiek',
