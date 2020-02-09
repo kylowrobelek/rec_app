@@ -18,7 +18,6 @@ def get_scores_today():
     date = DateResults.query.filter_by(
         date=datetime.today().date() - timedelta(days=1)).first()
     scores = TeamsScores.query.filter_by(date_results_id=date.id).all()
-    from pudb import set_trace; set_trace()
     data = {
         str(date.date): [{
             score.home_name: score.home_score,
