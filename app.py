@@ -8,7 +8,6 @@ from scoreboard.views import scoreboard_view
 def create_app():
     app = Flask(__name__)
     app.register_blueprint(scoreboard_view)
-    print(app.url_map)
 
     POSTGRES = {
         'user': 'krzysiek',
